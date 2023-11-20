@@ -214,7 +214,7 @@ function AddEmployee() {
         <>
             <button
                 type="button"
-                className="btn btn-dark btn-sm"
+                className="btn btn-dark btn-sm  d-block d-md-flex mx-auto my-3 my-md-0"
                 data-bs-toggle="modal"
                 data-bs-target="#addEmployee"
             >
@@ -235,7 +235,9 @@ function AddEmployee() {
                         </div>
                         <div className="modal-body">
                             <div className="card shadow p-5 m-3">
-                                <h4 className="fw-bold">Employee</h4>
+                                <h4 className="fw-bold  text-center text-md-start">
+                                    Employee
+                                </h4>
                                 <div className="d-block d-md-flex flex-wrap gap-3 mt-3">
                                     <img
                                         src={
@@ -243,7 +245,7 @@ function AddEmployee() {
                                                 ? URL.createObjectURL(file)
                                                 : "https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg"
                                         }
-                                        className="image-icon"
+                                        className="image-icon d-block mx-auto mx-md-0 d-md-flex mb-3 mb-md-0"
                                         alt=""
                                     />
                                     <div className="col">
@@ -331,7 +333,6 @@ function AddEmployee() {
                                         />
                                     </div>
                                 </div>
-
                                 <div className="d-block d-md-flex flex-wrap gap-3">
                                     <div className="col col-md-4">
                                         <label htmlFor="address">Address</label>
@@ -562,12 +563,12 @@ function AddEmployee() {
                                         />
                                     </div>
                                 </div>
-                                <div className="block my-3 flex-wrap">
-                                    <div className="col d-flex">
+                                <div className="my-0 my-md-3 mb-3 flex-wrap">
+                                    <div className="col d-block d-md-flex">
                                         <label htmlFor="insurance">
                                             Insurance
                                         </label>
-                                        <div className="col d-flex ms-3">
+                                        <div className="col d-block d-md-flex flex-wrap ms-0 ms-md-3">
                                             <input
                                                 type="checkbox"
                                                 className="form-check-input"
@@ -580,10 +581,12 @@ function AddEmployee() {
                                                 }
                                                 checked={employee.sss}
                                             />
-                                            <span className="ms-2">SSS</span>
+                                            <span className="ms-1 ms-md-2">
+                                                SSS
+                                            </span>
                                             <input
                                                 type="checkbox"
-                                                className="form-check-input ms-3"
+                                                className="form-check-input ms-2 ms-md-3"
                                                 value={employee.pagibig}
                                                 onChange={(e) =>
                                                     setEmployee({
@@ -594,12 +597,12 @@ function AddEmployee() {
                                                 }
                                                 checked={employee.pagibig}
                                             />
-                                            <span className="ms-2">
+                                            <span className="ms-1 ms-md-2">
                                                 Pag-Ibig
                                             </span>
                                             <input
                                                 type="checkbox"
-                                                className="form-check-input ms-3"
+                                                className="form-check-input ms-2 ms-md-3"
                                                 value={employee.philhealth}
                                                 onChange={(e) =>
                                                     setEmployee({
@@ -610,7 +613,7 @@ function AddEmployee() {
                                                 }
                                                 checked={employee.philhealth}
                                             />{" "}
-                                            <span className="ms-2">
+                                            <span className="ms-1 ms-md-2">
                                                 PhilHealth
                                             </span>
                                         </div>

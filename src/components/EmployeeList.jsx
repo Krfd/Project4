@@ -118,7 +118,7 @@ function EmployeeList() {
                                                 </td>
                                                 <td>{hiredEmployees.salary}</td>
                                                 <td>{hiredEmployees.phone}</td>
-                                                <td>
+                                                <td className="d-flex">
                                                     <EditEmployee
                                                         employee_id={
                                                             hiredEmployees.employee_id
@@ -187,7 +187,6 @@ function EmployeeList() {
                                                             hiredEmployees.momphone
                                                         }
                                                     />
-
                                                     <button
                                                         onClick={() =>
                                                             deleteEmployee(

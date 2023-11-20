@@ -164,7 +164,9 @@ function EditEmployee({
                         </div>
                         <div className="modal-body">
                             <div className="card shadow p-5 m-3">
-                                <h4 className="fw-bold">Employee</h4>
+                                <h4 className="fw-bold text-center text-md-start">
+                                    Employee
+                                </h4>
                                 <div className="d-block d-md-flex flex-wrap gap-3 mt-3">
                                     <div className="col">
                                         <label htmlFor="lastname">
@@ -468,12 +470,12 @@ function EditEmployee({
                                         />
                                     </div>
                                 </div>
-                                <div className="block my-3 flex-wrap">
-                                    <div className="col d-flex">
+                                <div className="my-0 my-md-3 mb-3 flex-wrap">
+                                    <div className="col d-block d-md-flex">
                                         <label htmlFor="insurance">
                                             Insurance
                                         </label>
-                                        <div className="col d-flex ms-3">
+                                        <div className="col d-block d-md-flex flex-wrap ms-0 ms-md-3">
                                             <input
                                                 type="checkbox"
                                                 className="form-check-input"
@@ -485,10 +487,12 @@ function EditEmployee({
                                                     })
                                                 }
                                             />
-                                            <span className="ms-2">SSS</span>
+                                            <span className="ms-1 ms-md-2">
+                                                SSS
+                                            </span>
                                             <input
                                                 type="checkbox"
-                                                className="form-check-input ms-3"
+                                                className="form-check-input ms-2 ms-md-3"
                                                 onChange={(e) =>
                                                     setEmployeeData({
                                                         ...employeeData,
@@ -498,12 +502,12 @@ function EditEmployee({
                                                 }
                                                 value={employeeData.pagibig}
                                             />
-                                            <span className="ms-2">
+                                            <span className="ms-1 ms-md-2">
                                                 Pag-Ibig
                                             </span>
                                             <input
                                                 type="checkbox"
-                                                className="form-check-input ms-3"
+                                                className="form-check-input ms-2 ms-md-3"
                                                 onChange={(e) =>
                                                     setEmployeeData({
                                                         ...employeeData,
@@ -514,7 +518,7 @@ function EditEmployee({
                                                 value={employeeData.philhealth}
                                             />
 
-                                            <span className="ms-2">
+                                            <span className="ms-1 ms-md-2">
                                                 PhilHealth
                                             </span>
                                         </div>
