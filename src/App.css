@@ -1,0 +1,57 @@
+body {
+    background: linear-gradient(hsla(228, 97%, 73%, 50%), grey),
+        url(../public/dashboard.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.logo {
+    height: auto;
+    width: 50px;
+    object-fit: cover;
+}
+/* Add Employee */
+.image-icon {
+    height: auto;
+    width: 100px;
+    border-radius: 100%;
+}
+.form-control,
+.form-select {
+    margin: 10px auto;
+    box-shadow: 1px 1px 1px grey;
+}
+.form-control:focus,
+.form-select:focus {
+    box-shadow: none;
+    border: 1px solid #292b2c;
+    box-shadow: 1px 1px 1px#000;
+    color: var(--dark);
+}
+/* Employee Card */
+.employeeCard {
+    -webkit-mask-image: linear-gradient(#000, rgba(0, 0, 0, 0.2));
+    mask-image: linear-gradient(#000, rgba(0, 0, 0, 0.2));
+    min-height: 250px;
+    height: 250px;
+    overflow-y: hidden;
+}
+.employeeCard:hover {
+    transition: 0.3s transform cubic-bezier(0.155, 1.105, 0.295, 1.12),
+        2s box-shadow,
+        2s -webkit-transform cubic-bezier(0.155, 1.105, 0.295, 1.12);
+    border: 1px solid #000;
+    background: linear-gradient(#000, rgba(0, 0, 0, 0.2), grey);
+}
+/* Login  */
+.err {
+    color: red;
+    font-size: 12px;
+}
+.link:hover {
+    color: #fff !important;
+}
+/* Modal */
+.modal-content .card {
+    background: linear-gradient(#7993fd, rgb(210, 210, 210));
+}
