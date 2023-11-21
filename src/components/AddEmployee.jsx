@@ -7,6 +7,7 @@ import app from "./firebaseConfig";
 import storage from "./firebaseConfig";
 import { getFirestore, addDoc, collection } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import EmployeeCard from "./EmployeeCard";
 
 function AddEmployee() {
     const [file, setFile] = useState("");
@@ -192,12 +193,6 @@ function AddEmployee() {
                         text: "Employee added successfully.",
                     });
                     emptyElements();
-                    const hide = () => {
-                        const hideModal = new bootstrap.Modal(
-                            document.getElementById("addEmployee")
-                        );
-                    };
-                    hide.hide();
                 } else {
                     Swal.fire({
                         icon: "error",
@@ -788,7 +783,7 @@ function AddEmployee() {
                                 </div>
 
                                 <button
-                                    className="btn btn-dark mt-3"
+                                    className="btn btn-primary mt-3"
                                     onClick={add}
                                 >
                                     Save

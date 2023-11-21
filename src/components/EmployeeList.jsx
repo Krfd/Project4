@@ -7,13 +7,13 @@ import {
     onSnapshot,
     collection,
     deleteDoc,
-    addDoc,
 } from "firebase/firestore";
 import Swal from "sweetalert2/dist/sweetalert2.js";
 import "sweetalert2/dist/sweetalert2.css";
 import "sweetalert2/dist/sweetalert2.js";
 import AddEmployee from "./AddEmployee";
 import EditEmployee from "./EditEmployee";
+import EmployeeCard from "./EmployeeCard";
 
 function EmployeeList() {
     const [employee, setEmployee] = useState([]);
@@ -67,7 +67,7 @@ function EmployeeList() {
 
     return (
         <>
-            <div className="container card shadow rounded-3 p-5 my-5">
+            <div className="container card shadow rounded-3 p-5 my-5 ">
                 <div className="d-block d-md-flex justify-content-between align-items-baseline">
                     <h1 className="fw-bold text-center text-md-start">
                         📃 Employees
@@ -77,8 +77,8 @@ function EmployeeList() {
                     </div>
                 </div>
 
-                <div className="table-responsive">
-                    <table className="table table-hover table-sm mt-3">
+                <div className="table-responsive employee-table">
+                    <table className="table table-hover table-sm mt-3 ">
                         <thead>
                             <tr>
                                 <th>Last Name</th>
@@ -98,12 +98,10 @@ function EmployeeList() {
                                     </td>
                                 </tr>
                             ) : (
-                                employee.map((hiredEmployees) => {
+                                employee.map((hiredEmployees, index) => {
                                     return (
                                         <>
-                                            <tr
-                                                key={hiredEmployees.employee_id}
-                                            >
+                                            <tr key={index}>
                                                 <td>
                                                     {hiredEmployees.lastname}
                                                 </td>
@@ -195,10 +193,89 @@ function EmployeeList() {
                                                                 hiredEmployees.employee_id
                                                             )
                                                         }
-                                                        className="btn btn-sm btn-danger"
+                                                        className="btn btn-sm btn-danger mx-1"
                                                     >
-                                                        Delete
+                                                        <svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            width="16"
+                                                            height="16"
+                                                            fill="currentColor"
+                                                            className="bi bi-trash-fill"
+                                                            viewBox="0 0 16 16"
+                                                            data-bs-toggle="tooltip"
+                                                            title="Delete"
+                                                        >
+                                                            <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z" />
+                                                        </svg>
                                                     </button>
+                                                    <EmployeeCard
+                                                        id={
+                                                            hiredEmployees.employee_id
+                                                        }
+                                                        lastname={
+                                                            hiredEmployees.lastname
+                                                        }
+                                                        firstname={
+                                                            hiredEmployees.firstname
+                                                        }
+                                                        middlename={
+                                                            hiredEmployees.middlename
+                                                        }
+                                                        email={
+                                                            hiredEmployees.email
+                                                        }
+                                                        address={
+                                                            hiredEmployees.address
+                                                        }
+                                                        phone={
+                                                            hiredEmployees.phone
+                                                        }
+                                                        position={
+                                                            hiredEmployees.position
+                                                        }
+                                                        salary={
+                                                            hiredEmployees.salary
+                                                        }
+                                                        degree={
+                                                            hiredEmployees.degree
+                                                        }
+                                                        birthday={
+                                                            hiredEmployees.birthday
+                                                        }
+                                                        sex={hiredEmployees.sex}
+                                                        age={hiredEmployees.age}
+                                                        sss={hiredEmployees.sss}
+                                                        pagibig={
+                                                            hiredEmployees.pagibig
+                                                        }
+                                                        philhealth={
+                                                            hiredEmployees.philhealth
+                                                        }
+                                                        dadfirstname={
+                                                            hiredEmployees.dadfirstname
+                                                        }
+                                                        dadlastname={
+                                                            hiredEmployees.dadlastname
+                                                        }
+                                                        dadmiddlename={
+                                                            hiredEmployees.dadmiddlename
+                                                        }
+                                                        dadphone={
+                                                            hiredEmployees.dadphone
+                                                        }
+                                                        momfirstname={
+                                                            hiredEmployees.momfirstname
+                                                        }
+                                                        momlastname={
+                                                            hiredEmployees.momlastname
+                                                        }
+                                                        mommiddlename={
+                                                            hiredEmployees.mommiddlename
+                                                        }
+                                                        momphone={
+                                                            hiredEmployees.momphone
+                                                        }
+                                                    />
                                                 </td>
                                             </tr>
                                         </>

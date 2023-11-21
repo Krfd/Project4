@@ -1,6 +1,6 @@
 body {
     background: linear-gradient(hsla(228, 97%, 73%, 50%), grey),
-        url(../public/dashboard.svg);
+        url(dashboard.svg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -9,6 +9,9 @@ body {
     height: auto;
     width: 50px;
     object-fit: cover;
+}
+.employee-table {
+    min-height: 40vh;
 }
 /* Add Employee */
 .image-icon {
@@ -29,19 +32,38 @@ body {
     color: var(--dark);
 }
 /* Employee Card */
+.avatar {
+    height: auto;
+    width: 100px !important;
+}
+.dropdown-menu .dropdown-item {
+    background: #fff;
+}
 .employeeCard {
-    -webkit-mask-image: linear-gradient(#000, rgba(0, 0, 0, 0.2));
-    mask-image: linear-gradient(#000, rgba(0, 0, 0, 0.2));
-    min-height: 250px;
-    height: 250px;
-    overflow-y: hidden;
+    -webkit-mask-image: linear-gradient(#000, rgba(0, 0, 0, 0.2)) !important;
+    mask-image: linear-gradient(#000, rgba(0, 0, 0, 0.2)) !important;
+    /* min-height: 250px;
+    height: 250px; */
 }
 .employeeCard:hover {
-    transition: 0.3s transform cubic-bezier(0.155, 1.105, 0.295, 1.12),
-        2s box-shadow,
-        2s -webkit-transform cubic-bezier(0.155, 1.105, 0.295, 1.12);
-    border: 1px solid #000;
-    background: linear-gradient(#000, rgba(0, 0, 0, 0.2), grey);
+    /* background: linear-gradient(#000, rgba(0, 0, 0, 0.2), grey); */
+    -webkit-mask-image: linear-gradient(#000, rgba(0, 0, 0, 1)) !important;
+    mask-image: linear-gradient(#000, rgba(0, 0, 0, 1)) !important;
+    overflow-y: hidden;
+    opacity: 1;
+    background: #7993fd;
+    color: #fff;
+    transition: 0.1s ease;
+}
+.employee-bg {
+    background: linear-gradient(
+            hsla(0, 0%, 100%, 100%),
+            hsla(228, 97%, 73%, 100%)
+        ),
+        url(employee_bg.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 /* Login  */
 .err {

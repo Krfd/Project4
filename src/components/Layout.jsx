@@ -9,7 +9,7 @@ function Layout() {
     return (
         <>
             <main className="d-flex flex-column min-vh-100">
-                <nav className="navbar navbar-expand-lg  px-3">
+                <nav className="navbar navbar-expand-sm  px-3">
                     <div className="container-fluid">
                         <Link className="navbar-brand fw-bold" to="/employees">
                             <img src={reactLogo} alt="logo" className="logo" />
@@ -38,14 +38,14 @@ function Layout() {
                                         Employees
                                     </Link>
                                 </li>
-                                <li className="nav-item ">
+                                {/* <li className="nav-item ">
                                     <Link
                                         to="profile"
                                         className="fw-bold nav-link "
                                     >
                                         Profile
                                     </Link>
-                                </li>
+                                </li> */}
                                 <li className="nav-item ">
                                     <Link
                                         to="login"
