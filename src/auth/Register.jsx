@@ -44,7 +44,7 @@ function Register() {
 
     return (
         <>
-            <div className="container border p-5 rounded mt-5">
+            <div className="d-block mx-auto border p-5 rounded mt-5">
                 <h1 className="fw-bold">Register</h1>
                 <p>Create your account here.</p>
                 <div className="row">
@@ -98,12 +98,15 @@ function Register() {
                     value={confirm}
                 />
 
-                <button className="btn btn-dark mt-3" onClick={handleRegister}>
+                <button
+                    className="btn btn-dark mt-3 btn-sm d-block mx-auto"
+                    onClick={handleRegister}
+                >
                     Register
                 </button>
                 <hr />
                 <Link to="/login" className="mt-3 text-dark link">
-                    Don't have an account? Register here.
+                    Already have an account? Login here.
                 </Link>
             </div>
         </>

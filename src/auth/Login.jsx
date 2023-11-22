@@ -34,7 +34,7 @@ function Login() {
 
     return (
         <>
-            <div className="container border p-5 rounded my-5">
+            <div className="d-block mx-auto border p-5 rounded my-5">
                 <h1 className="fw-bold">Login</h1>
                 <p>Enter your email and password to login.</p>
                 <label htmlFor="email">Email</label>
@@ -55,7 +55,10 @@ function Login() {
                     onChange={(e) => setPassword(e.target.value)}
                     value={password}
                 />
-                <button className="btn btn-dark mt-3" onClick={handleLogin}>
+                <button
+                    className="btn btn-dark mt-3 mx-auto d-block btn-sm"
+                    onClick={handleLogin}
+                >
                     Login
                 </button>
                 <hr />

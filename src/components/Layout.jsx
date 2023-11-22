@@ -38,14 +38,14 @@ function Layout() {
                                         Employees
                                     </Link>
                                 </li>
-                                {/* <li className="nav-item ">
+                                <li className="nav-item ">
                                     <Link
                                         to="profile"
                                         className="fw-bold nav-link "
                                     >
                                         Profile
                                     </Link>
-                                </li> */}
+                                </li>
                                 <li className="nav-item ">
                                     <Link
                                         to="login"

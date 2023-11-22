@@ -6,7 +6,7 @@ import "bootstrap/dist/js/bootstrap.min.js";
 import "./App.css";
 import EmployeeList from "./components/EmployeeList";
 import EmployeeCard from "./components/EmployeeCard";
-import EditEmployee from "./components/EditEmployee";
+import EmployeeProfile from "./components/EmployeeProfile";
 import Login from "./auth/Login";
 import Register from "./auth/Register";
 
@@ -17,8 +17,7 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Layout />}>
                         <Route path="employees" element={<EmployeeList />} />
-                        {/* <Route path="profile" element={<EmployeeCard />} /> */}
-                        <Route path="update" element={<EditEmployee />} />
+                        <Route path="profile" element={<EmployeeProfile />} />
                         <Route path="login" element={<Login />} />
                         <Route path="register" element={<Register />} />
                     </Route>

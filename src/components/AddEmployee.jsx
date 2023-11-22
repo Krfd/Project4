@@ -171,8 +171,8 @@ function AddEmployee() {
                     employee.momphone = "N/A";
                     employee.dadphone = "N/A";
                 } else {
-                    employee.momphone = employee.momphone;
                     employee.dadphone = employee.dadphone;
+                    employee.momphone = employee.momphone;
                 }
                 employee.sss == true
                     ? (employee.sss = "SSS")

@@ -33,7 +33,7 @@ function EditEmployee({
     momphone,
 }) {
     const [employeeData, setEmployeeData] = useState({
-        id: employee_id,
+        id: "ID" + employee_id,
         lastname: lastname,
         firstname: firstname,
         middlename: middlename,
@@ -98,6 +98,24 @@ function EditEmployee({
                         text: "Please fill up all fields.",
                     });
                 } else {
+                    employeeData.sss === "SSS"
+                        ? (employeeData.sss = "SSS")
+                        : (employeeData.sss = "N/A");
+                    employeeData.pagibig === "Pag-IBIG"
+                        ? (employeeData.pagibig = "Pag-IBIG")
+                        : (employeeData.pagibig = "N/A");
+                    employeeData.philhealth === "PhilHealth"
+                        ? (employeeData.philhealth = "PhilHealth")
+                        : (employeeData.philhealth = "N/A");
+                    employeeData.dadphone === "" ||
+                    employeeData.dadphone === null
+                        ? (employeeData.dadphone = "N/A")
+                        : employeeData.dadphone;
+                    employeeData.momphone === "" ||
+                    employeeData.momphone === null
+                        ? (employeeData.momphone = "N/A")
+                        : employeeData.momphone;
+
                     const employeeRef = doc(db, "employees", id);
                     updateDoc(employeeRef, {
                         lastname: employeeData.lastname,
@@ -129,7 +147,29 @@ function EditEmployee({
                         title: "Success!",
                         text: `${firstname} ${lastname} has been Updated.`,
                     });
-                    setEmployeeData({});
+                    (employeeData.lastname = ""),
+                        (employeeData.firstname = ""),
+                        (employeeData.middlename = ""),
+                        (employeeData.email = ""),
+                        (employeeData.address = ""),
+                        (employeeData.position = ""),
+                        (employeeData.salary = ""),
+                        (employeeData.phone = ""),
+                        (employeeData.degree = ""),
+                        (employeeData.birthday = ""),
+                        (employeeData.sex = ""),
+                        (employeeData.age = ""),
+                        (employeeData.sss = false),
+                        (employeeData.pagibig = false),
+                        (employeeData.philhealth = false),
+                        (employeeData.dadfirstname = ""),
+                        (employeeData.dadlastname = ""),
+                        (employeeData.dadmiddlename = ""),
+                        (employeeData.momfirstname = ""),
+                        (employeeData.momlastname = ""),
+                        (employeeData.mommiddlename = "");
+                    employeeData.momphone = "";
+                    employeeData.dadphone = "";
                 }
             } else if (result.isDenied) {
                 Swal.fire({
@@ -140,12 +180,13 @@ function EditEmployee({
             }
         });
     };
+
     return (
         <>
             <button
                 className="btn btn-sm btn-secondary"
                 data-bs-toggle="modal"
-                data-bs-target={`#${employee_id}`}
+                data-bs-target={`#${employeeData.id}`}
             >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -162,7 +203,7 @@ function EditEmployee({
                     />
                 </svg>
             </button>
-            <div className="modal fade" id={employee_id}>
+            <div className="modal fade" id={employeeData.id}>
                 <div className="modal-dialog modal-dialog-centered modal-xl modal-dialog-scrollable">
                     <div className="modal-content">
                         <div className="modal-header">
@@ -190,13 +231,13 @@ function EditEmployee({
                                             id="lastname"
                                             name="lastname"
                                             className="form-control"
-                                            value={employeeData.lastname}
                                             onChange={(e) =>
                                                 setEmployeeData({
                                                     ...employeeData,
                                                     lastname: e.target.value,
                                                 })
                                             }
+                                            value={employeeData.lastname}
                                         />
                                     </div>
 
@@ -492,14 +533,20 @@ function EditEmployee({
                                             <input
                                                 type="checkbox"
                                                 className="form-check-input"
-                                                value={employeeData.sss}
                                                 onChange={(e) =>
                                                     setEmployeeData({
                                                         ...employeeData,
                                                         sss: e.target.checked,
                                                     })
                                                 }
+                                                value={employeeData.sss}
+                                                checked={
+                                                    employeeData.sss === "SSS"
+                                                        ? employeeData.sss
+                                                        : null
+                                                }
                                             />
+
                                             <span className="ms-1 ms-md-2">
                                                 SSS
                                             </span>
@@ -514,12 +561,19 @@ function EditEmployee({
                                                     })
                                                 }
                                                 value={employeeData.pagibig}
+                                                checked={
+                                                    employeeData.pagibig ===
+                                                    "Pag-IBIG"
+                                                        ? employeeData.pagibig
+                                                        : null
+                                                }
                                             />
                                             <span className="ms-1 ms-md-2">
                                                 Pag-Ibig
                                             </span>
                                             <input
                                                 type="checkbox"
+                                                id="philhealth"
                                                 className="form-check-input ms-2 ms-md-3"
                                                 onChange={(e) =>
                                                     setEmployeeData({
@@ -529,6 +583,12 @@ function EditEmployee({
                                                     })
                                                 }
                                                 value={employeeData.philhealth}
+                                                checked={
+                                                    employeeData.philhealth ===
+                                                    "PhilHealth"
+                                                        ? employeeData.philhealth
+                                                        : null
+                                                }
                                             />
 
                                             <span className="ms-1 ms-md-2">
@@ -618,7 +678,12 @@ function EditEmployee({
                                                             e.target.value,
                                                     })
                                                 }
-                                                value={employeeData.dadphone}
+                                                value={
+                                                    employeeData.dadphone ===
+                                                    "N/A"
+                                                        ? null
+                                                        : employeeData.dadphone
+                                                }
                                                 minLength="11"
                                                 maxLength="11"
                                             />
@@ -705,7 +770,12 @@ function EditEmployee({
                                                             e.target.value,
                                                     })
                                                 }
-                                                value={employeeData.momphone}
+                                                value={
+                                                    employeeData.momphone ===
+                                                    "N/A"
+                                                        ? null
+                                                        : employeeData.momphone
+                                                }
                                                 minLength="11"
                                                 maxLength="11"
                                             />
@@ -717,7 +787,7 @@ function EditEmployee({
                                     className="btn btn-primary mt-3"
                                     onClick={() =>
                                         updateEmployee(
-                                            employeeData.id,
+                                            (employeeData.id = employee_id),
                                             employeeData.lastname,
                                             employeeData.firstname
                                         )
