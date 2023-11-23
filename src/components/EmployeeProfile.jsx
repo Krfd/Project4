@@ -32,6 +32,8 @@ function EmployeeProfile() {
         <>
             <div className="container d-block d-md-flex gap-3 gap-md-5 flex-wrap mx-auto my-5 justify-content-center">
                 {profile.map((profile) => {
+                    const date = new Date(profile.birthday);
+                    const formatDate = date.toDateString();
                     return (
                         <>
                             <button
@@ -109,8 +111,7 @@ function EmployeeProfile() {
                                                         Degree: {profile.degree}
                                                     </p>
                                                     <p>
-                                                        Birthday:{" "}
-                                                        {profile.birthday}
+                                                        Birthday: {formatDate}
                                                     </p>
                                                     <p>Sex: {profile.sex}</p>
                                                     <p>Age: {profile.age}</p>

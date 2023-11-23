@@ -1,10 +1,15 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import firebaseAuth from "../components/firebaseConfig";
-import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import {
+    createUserWithEmailAndPassword,
+    getAuth,
+    updateProfile,
+} from "firebase/auth";
 import Swal from "sweetalert2/dist/sweetalert2.js";
 import "sweetalert2/dist/sweetalert2.css";
 import "sweetalert2/dist/sweetalert2.js";
+import { useNavigate } from "react-router-dom";
 
 function Register() {
     const [firstname, setFirstname] = useState("");
@@ -13,32 +18,62 @@ function Register() {
     const [password, setPassword] = useState("");
     const [confirm, setConfirm] = useState("");
 
+    const emptyFields = () => {
+        setFirstname("");
+        setLastname("");
+        setEmail("");
+        setPassword("");
+        setConfirm("");
+    };
+
     const handleRegister = () => {
         if (
+            firstname !== "" ||
+            lastname !== "" ||
             email !== "" ||
             password !== "" ||
-            (confirm !== "" && password === confirm)
+            confirm !== ""
         ) {
-            const auth = getAuth(firebaseAuth);
-            createUserWithEmailAndPassword(auth, email, password)
-                .then((userCredential) => {
-                    const user = userCredential.user;
-                    alert("Registration successful!");
-                })
-                .catch((err) => {
-                    console.log(err.message);
-                    Swal.fire({
-                        icon: "error",
-                        title: "Oops...",
-                        text: "Registration failed!",
+            if (password === confirm) {
+                const auth = getAuth(firebaseAuth);
+                createUserWithEmailAndPassword(auth, email, password)
+                    .then((userCredential) => {
+                        const user = userCredential.user;
+
+                        updateProfile(auth.currentUser, {
+                            displayName: firstname + " " + lastname,
+                        });
+
+                        Swal.fire({
+                            icon: "success",
+                            title: "Registration Successful!",
+                            text: "You will be redirected to the login page.",
+                        });
+                        emptyFields();
+                    })
+                    .catch((err) => {
+                        console.log(err.message);
+                        Swal.fire({
+                            icon: "error",
+                            title: "Oops...",
+                            text: "Registration failed!",
+                        });
                     });
+            } else {
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Password and confirm password do not match!",
                 });
+                emptyFields();
+            }
         } else {
             Swal.fire({
                 icon: "error",
                 title: "Oops...",
-                text: "Please enter your email and password",
+                text: "Please fill out all the fields.",
             });
+            emptyFields();
         }
     };
 

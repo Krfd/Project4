@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import firebaseAuth from "../components/firebaseConfig";
 import { getAuth } from "firebase/auth";
 import { signInWithEmailAndPassword } from "firebase/auth";
@@ -11,17 +11,36 @@ function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
+    const emptyFields = () => {
+        setEmail("");
+        setPassword("");
+    };
+
+    let navigate = useNavigate();
+
     const handleLogin = () => {
         if (email !== "" || password !== "") {
             const auth = getAuth(firebaseAuth);
             signInWithEmailAndPassword(auth, email, password)
                 .then((userCredential) => {
                     const user = userCredential.user;
-                    alert("Login successful!");
+
+                    Swal.fire({
+                        icon: "success",
+                        title: "Login Successful!",
+                        text: "You will be redirected to the homepage.",
+                    }).then(() => {
+                        navigate("/");
+                    });
+                    emptyFields();
                 })
                 .catch((error) => {
                     console.log(error.message);
-                    alert("Login failed!");
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: "Login failed!",
+                    });
                 });
         } else {
             Swal.fire({
@@ -29,6 +48,7 @@ function Login() {
                 title: "Oops...",
                 text: "Please fill out all the fields!",
             });
+            emptyFields();
         }
     };
 

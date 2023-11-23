@@ -184,7 +184,7 @@ function EditEmployee({
     return (
         <>
             <button
-                className="btn btn-sm btn-secondary"
+                className="btn btn-sm btn-primary"
                 data-bs-toggle="modal"
                 data-bs-target={`#${employeeData.id}`}
             >
@@ -222,7 +222,7 @@ function EditEmployee({
                                     Employee
                                 </h4>
                                 <div className="d-block d-md-flex flex-wrap gap-3 mt-3">
-                                    <div className="col">
+                                    <div className="col-12 col-md-5 col-lg-3">
                                         <label htmlFor="lastname">
                                             Last Name
                                         </label>
@@ -259,7 +259,7 @@ function EditEmployee({
                                             }
                                         />
                                     </div>
-                                    <div className="col">
+                                    <div className="col-12 col-md-5 col-lg-3">
                                         <label htmlFor="middlename">
                                             Middle Name
                                         </label>
@@ -295,7 +295,7 @@ function EditEmployee({
                                     </div>
                                 </div>
                                 <div className="d-block d-md-flex flex-wrap gap-3">
-                                    <div className="col col-md-4">
+                                    <div className="col-12 col-md-5 col-lg-3">
                                         <label htmlFor="address">Address</label>
                                         <input
                                             type="text"
@@ -331,7 +331,7 @@ function EditEmployee({
                                             maxLength="11"
                                         />
                                     </div>
-                                    <div className="col">
+                                    <div className="col-12 col-md-5 col-lg-3">
                                         <label htmlFor="position">
                                             Position
                                         </label>
@@ -483,7 +483,7 @@ function EditEmployee({
                                             }
                                         />
                                     </div>
-                                    <div className="col col-md-2">
+                                    <div className="col col-md-4 col-lg-2">
                                         <label htmlFor="sex">Sex</label>
                                         <select
                                             name="sex"
@@ -506,7 +506,7 @@ function EditEmployee({
                                             </option>
                                         </select>
                                     </div>
-                                    <div className="col col-md-1">
+                                    <div className="col col-md-3 col-lg-1">
                                         <label htmlFor="age">Age</label>
                                         <input
                                             type="number"
@@ -525,13 +525,14 @@ function EditEmployee({
                                     </div>
                                 </div>
                                 <div className="my-0 my-md-3 mb-3 flex-wrap">
-                                    <div className="col d-block d-md-flex">
+                                    <div className="col d-block d-lg-flex">
                                         <label htmlFor="insurance">
                                             Insurance
                                         </label>
-                                        <div className="col d-block d-md-flex flex-wrap ms-0 ms-md-3">
+                                        <div className="col d-block d-md-flex flex-wrap ms-0 ms-lg-3">
                                             <input
                                                 type="checkbox"
+                                                id="sss"
                                                 className="form-check-input"
                                                 onChange={(e) =>
                                                     setEmployeeData({
@@ -540,18 +541,13 @@ function EditEmployee({
                                                     })
                                                 }
                                                 value={employeeData.sss}
-                                                checked={
-                                                    employeeData.sss === "SSS"
-                                                        ? employeeData.sss
-                                                        : null
-                                                }
                                             />
-
                                             <span className="ms-1 ms-md-2">
                                                 SSS
                                             </span>
                                             <input
                                                 type="checkbox"
+                                                id="pagibig"
                                                 className="form-check-input ms-2 ms-md-3"
                                                 onChange={(e) =>
                                                     setEmployeeData({
@@ -561,12 +557,6 @@ function EditEmployee({
                                                     })
                                                 }
                                                 value={employeeData.pagibig}
-                                                checked={
-                                                    employeeData.pagibig ===
-                                                    "Pag-IBIG"
-                                                        ? employeeData.pagibig
-                                                        : null
-                                                }
                                             />
                                             <span className="ms-1 ms-md-2">
                                                 Pag-Ibig
@@ -583,14 +573,7 @@ function EditEmployee({
                                                     })
                                                 }
                                                 value={employeeData.philhealth}
-                                                checked={
-                                                    employeeData.philhealth ===
-                                                    "PhilHealth"
-                                                        ? employeeData.philhealth
-                                                        : null
-                                                }
                                             />
-
                                             <span className="ms-1 ms-md-2">
                                                 PhilHealth
                                             </span>
@@ -601,7 +584,7 @@ function EditEmployee({
                                 <div>
                                     <h5 className="fw-bold">Father</h5>
                                     <div className="d-block d-md-flex flex-wrap gap-3">
-                                        <div className="col">
+                                        <div className="col-12 col-md-5 col-lg-3">
                                             <label htmlFor="fatherfirstname">
                                                 First Name
                                             </label>
@@ -641,7 +624,7 @@ function EditEmployee({
                                                 value={employeeData.dadlastname}
                                             />
                                         </div>
-                                        <div className="col">
+                                        <div className="col-12 col-md-5 col-lg-3">
                                             <label htmlFor="fathermiddlename">
                                                 Middle Name
                                             </label>
@@ -693,7 +676,7 @@ function EditEmployee({
                                 <div>
                                     <h5 className="fw-bold">Mother</h5>
                                     <div className="d-block d-md-flex flex-wrap gap-3">
-                                        <div className="col">
+                                        <div className="col-12 col-md-5 col-lg-3">
                                             <label htmlFor="momfirstname">
                                                 First Name
                                             </label>
@@ -733,7 +716,7 @@ function EditEmployee({
                                                 value={employeeData.momlastname}
                                             />
                                         </div>
-                                        <div className="col">
+                                        <div className="col-12 col-md-5 col-lg-3">
                                             <label htmlFor="mommiddlename">
                                                 Middle Name
                                             </label>

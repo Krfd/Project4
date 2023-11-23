@@ -5,8 +5,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
 import "./App.css";
 import EmployeeList from "./components/EmployeeList";
-import EmployeeCard from "./components/EmployeeCard";
 import EmployeeProfile from "./components/EmployeeProfile";
+import Contact from "./components/Contact";
 import Login from "./auth/Login";
 import Register from "./auth/Register";
 
@@ -16,8 +16,9 @@ function App() {
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<Layout />}>
-                        <Route path="employees" element={<EmployeeList />} />
+                        <Route index element={<EmployeeList />} />
                         <Route path="profile" element={<EmployeeProfile />} />
+                        <Route path="contact" element={<Contact />} />
                         <Route path="login" element={<Login />} />
                         <Route path="register" element={<Register />} />
                     </Route>
