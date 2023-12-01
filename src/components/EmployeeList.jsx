@@ -46,18 +46,6 @@ function EmployeeList() {
                 const uid = user.uid;
                 setAuthenticated(true);
                 setUserProperties(user);
-                //     Swal.fire({
-                //         icon: "success",
-                //         title: "Welcome!",
-                //         text: "You are logged in.",
-                //     });
-                // } else {
-                //     Swal.fire({
-                //         icon: "error",
-                //         title: "Oops...",
-                //         text: "You are not logged in!",
-                //     });
-                // }
             }
         });
     }, []);
@@ -337,8 +325,12 @@ function EmployeeList() {
     } else {
         return (
             <>
-                <div className="container">
-                    <h1 className="fw-bold">Hello Guess!</h1>
+                <div className="container mt-5">
+                    <div className="d-block">
+                        <h1 className="text-start display-1 fw-bold">
+                            Please login to access the system...
+                        </h1>
+                    </div>
                 </div>
             </>
         );

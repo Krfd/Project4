@@ -7,7 +7,6 @@ import app from "./firebaseConfig";
 import storage from "./firebaseConfig";
 import { getFirestore, addDoc, collection } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import EmployeeCard from "./EmployeeCard";
 
 function AddEmployee() {
     const [file, setFile] = useState("");
@@ -234,7 +233,7 @@ function AddEmployee() {
                                     Employee
                                 </h4>
                                 <div className="d-block d-md-flex flex-wrap gap-3 mt-3">
-                                    <img
+                                    {/* <img
                                         src={
                                             file
                                                 ? URL.createObjectURL(file)
@@ -242,7 +241,7 @@ function AddEmployee() {
                                         }
                                         className="image-icon d-block mx-auto mx-md-0 d-md-flex mb-3 mb-md-0"
                                         alt=""
-                                    />
+                                    /> */}
                                     <div className="col">
                                         <label htmlFor="lastname">
                                             Last Name
@@ -314,7 +313,7 @@ function AddEmployee() {
                                             }
                                         />
                                     </div>
-                                    <div className="col">
+                                    {/* <div className="col">
                                         <label htmlFor="profile">Profile</label>
                                         <input
                                             type="file"
@@ -326,7 +325,7 @@ function AddEmployee() {
                                             }
                                             value={file}
                                         />
-                                    </div>
+                                    </div> */}
                                 </div>
                                 <div className="d-block d-md-flex flex-wrap gap-3">
                                     <div className="col col-md-4">
