@@ -14,6 +14,13 @@ function Contact() {
     const [contactList, setContactList] = useState([]);
     const [authenticated, setAuthenticated] = useState(false);
 
+    const emptyFields = () => {
+        setContact({
+            email: "",
+            message: "",
+        });
+    };
+
     const handleLogin = () => {
         const db = getFirestore(app);
         try {
@@ -35,6 +42,7 @@ function Contact() {
                         icon: "success",
                         confirmButtonText: "Ok",
                     });
+                    emptyFields();
                 } else {
                     Swal.fire({
                         title: "Error!",
@@ -42,6 +50,7 @@ function Contact() {
                         icon: "error",
                         confirmButtonText: "Ok",
                     });
+                    emptyFields();
                 }
             }
         } catch (error) {
