@@ -58,6 +58,7 @@ function Register() {
                             title: "Oops...",
                             text: "Registration failed!",
                         });
+                        emptyFields();
                     });
             } else {
                 Swal.fire({

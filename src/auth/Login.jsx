@@ -41,6 +41,7 @@ function Login() {
                         title: "Oops...",
                         text: "Login failed!",
                     });
+                    emptyFields();
                 });
         } else {
             Swal.fire({
