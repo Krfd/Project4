@@ -1,17 +1,53 @@
 import app from "./firebaseConfig";
 import { useState, useEffect } from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getFirestore, addDoc, collection } from "firebase/firestore";
+import Swal from "sweetalert2/dist/sweetalert2.js";
+import "sweetalert2/dist/sweetalert2.css";
+import "sweetalert2/dist/sweetalert2.js";
 
 function Contact() {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [contact, setContact] = useState({
+        email: "",
+        message: "",
+    });
+    const [contactList, setContactList] = useState([]);
     const [authenticated, setAuthenticated] = useState(false);
 
-    const addContact = () => {
-        console.log(email);
-    };
+    const handleLogin = () => {
+        const db = getFirestore(app);
+        try {
+            if (contact.email === "" || contact.password === "") {
+                Swal.fire({
+                    title: "Error!",
+                    text: "Please fill all the fields!",
+                    icon: "error",
+                    confirmButtonText: "Ok",
+                });
+                return;
+            } else {
+                setContactList([...contactList, contact]);
 
-    const handleLogin = () => {};
+                if (addDoc(collection(db, "contact"), contact)) {
+                    Swal.fire({
+                        title: "Success!",
+                        text: "Your message has been sent!",
+                        icon: "success",
+                        confirmButtonText: "Ok",
+                    });
+                } else {
+                    Swal.fire({
+                        title: "Error!",
+                        text: "Your message was not sent!",
+                        icon: "error",
+                        confirmButtonText: "Ok",
+                    });
+                }
+            }
+        } catch (error) {
+            console.log(error.message);
+        }
+    };
 
     useEffect(() => {
         const auth = getAuth(app);
@@ -36,20 +72,31 @@ function Contact() {
                         <input
                             type="email"
                             className="form-control"
-                            id="email"
-                            onChange={(e) => setEmail(e.target.value)}
-                            value={email}
+                            onChange={(e) =>
+                                setContact({
+                                    ...contact,
+                                    email: e.target.value,
+                                })
+                            }
+                            value={contact.email}
                         />
-                        <label htmlFor="password" className="mt-2">
-                            Password
+                        <label htmlFor="message" className="mt-2">
+                            Message
                         </label>
-                        <input
-                            type="password"
+                        <textarea
+                            type="text"
+                            id="message"
+                            cols="30"
+                            rows="5"
                             className="form-control"
-                            id="password"
-                            onChange={(e) => setPassword(e.target.value)}
-                            value={password}
-                        />
+                            onChange={(e) =>
+                                setContact({
+                                    ...contact,
+                                    message: e.target.value,
+                                })
+                            }
+                            value={contact.message}
+                        ></textarea>
                         <button
                             className="btn btn-dark mt-3 mx-auto d-block btn-sm"
                             onClick={handleLogin}
