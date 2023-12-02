@@ -80,7 +80,7 @@ function Register() {
 
     return (
         <>
-            <div className="d-block mx-auto border p-5 rounded mt-5">
+            <div className="d-block border p-5 rounded my-5 mx-auto">
                 <h1 className="fw-bold">Register</h1>
                 <p>Create your account here.</p>
                 <div className="row">
